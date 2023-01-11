@@ -183,6 +183,7 @@ int power_init_board(void)
 		return -ENODEV;
 
 	pmic_reg_read(p, PFUZE100_DEVICEID, &reg);
+	printf("ITX8MQ SPL\n");
 	printf("PMIC:  PFUZE100 ID=0x%02x\n", reg);
 
 	pmic_reg_read(p, PFUZE100_SW3AVOL, &reg);
