@@ -12,7 +12,7 @@
 #include "imx_env.h"
 
 #undef CONFIG_NR_DRAM_BANKS
-#define CONFIG_NR_DRAM_BANKS 8
+#define CONFIG_NR_DRAM_BANKS 2
 
 #define CONFIG_SYS_BOOTM_LEN		(64 * SZ_1M)
 

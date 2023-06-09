@@ -27,6 +27,7 @@
 #include <power/pfuze100_pmic.h>
 #include "../common/tcpc.h"
 #include "../common/pfuze.h"
+#include <fuse.h>
 #include <usb.h>
 #include <dwc3-uboot.h>
 
@@ -44,6 +45,45 @@ static iomux_v3_cfg_t const uart_pads[] = {
 	IMX8MQ_PAD_UART1_RXD__UART1_RX | MUX_PAD_CTRL(UART_PAD_CTRL),
 	IMX8MQ_PAD_UART1_TXD__UART1_TX | MUX_PAD_CTRL(UART_PAD_CTRL),
 };
+
+
+int board_phys_sdram_size(phys_size_t *size)
+{
+	if (!size)
+		return -EINVAL;
+
+
+	unsigned int val;
+	// sc_misc_otp_fuse_read(9, 2, &val);
+
+	unsigned char eth1addr[6];
+	imx_get_mac_from_fuse(0, eth1addr);
+
+	printf("MAC Address Byte [0]: 0x%02x\n", eth1addr[0]);
+	printf("MAC Address Byte [1]: 0x%02x\n", eth1addr[1]);
+	printf("MAC Address Byte [2]: 0x%02x\n", eth1addr[2]);
+	printf("MAC Address Byte [3]: 0x%02x\n", eth1addr[3]);
+	printf("MAC Address Byte [4]: 0x%02x\n", eth1addr[4]);
+	printf("MAC Address Byte [5]: 0x%02x\n", eth1addr[5]);
+
+	/* ddr init */
+	if (val && 0x1)
+	{
+		//Setup 2GB Memory size
+		gd->ram_size = 0x10000000;
+		*size = 0x10000000;
+		printf("Memory Detected 2G\n");
+	}
+	else
+	{
+		//Setup 4GB Memory Size
+		gd->ram_size = 0x100000000;
+		*size = 0x100000000;
+		printf("Memory Detected: 4G\n");
+	}
+
+	return 0;
+}
 
 int board_early_init_f(void)
 {
