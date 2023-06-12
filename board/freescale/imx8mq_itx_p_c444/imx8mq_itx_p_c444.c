@@ -59,15 +59,13 @@ int board_phys_sdram_size(phys_size_t *size)
 	if (eth1addr[1] && 0x1)
 	{
 		//Setup 2GB Memory size
-		gd->ram_size = 0x10000000;
-		*size = 0x10000000;
+		*size = (1L << 20) * 2048;
 		printf("Memory Detected 2G\n");
 	}
 	else
 	{
 		//Setup 4GB Memory Size
-		gd->ram_size = 0x100000000;
-		*size = 0x100000000;
+		*size = (1L << 20) * 4096;
 		printf("Memory Detected: 4G\n");
 	}
 

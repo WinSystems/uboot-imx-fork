@@ -165,7 +165,7 @@
 
 #define CONFIG_SYS_SDRAM_BASE           0x40000000
 #define PHYS_SDRAM                      0x40000000
-#define PHYS_SDRAM_SIZE					(gd->ram_size) /* 4GB DDR */
+#define PHYS_SDRAM_SIZE					((1L << 20) * 2048) /* 2GB DDR */
 
 #define CONFIG_MXC_UART_BASE		UART1_BASE_ADDR
 
