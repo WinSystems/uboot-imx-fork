@@ -52,19 +52,8 @@ int board_phys_sdram_size(phys_size_t *size)
 	if (!size)
 		return -EINVAL;
 
-
-	unsigned int val;
-	// sc_misc_otp_fuse_read(9, 2, &val);
-
 	unsigned char eth1addr[6];
 	imx_get_mac_from_fuse(0, eth1addr);
-
-	printf("MAC Address Byte [0]: 0x%02x\n", eth1addr[0]);
-	printf("MAC Address Byte [1]: 0x%02x\n", eth1addr[1]);
-	printf("MAC Address Byte [2]: 0x%02x\n", eth1addr[2]);
-	printf("MAC Address Byte [3]: 0x%02x\n", eth1addr[3]);
-	printf("MAC Address Byte [4]: 0x%02x\n", eth1addr[4]);
-	printf("MAC Address Byte [5]: 0x%02x\n", eth1addr[5]);
 
 	/* ddr init */
 	if (eth1addr[1] && 0x1)
