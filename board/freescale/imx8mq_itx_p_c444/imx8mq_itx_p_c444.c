@@ -67,7 +67,7 @@ int board_phys_sdram_size(phys_size_t *size)
 	printf("MAC Address Byte [5]: 0x%02x\n", eth1addr[5]);
 
 	/* ddr init */
-	if (val && 0x1)
+	if (eth1addr[1] && 0x1)
 	{
 		//Setup 2GB Memory size
 		gd->ram_size = 0x10000000;
