@@ -60,13 +60,11 @@ int board_phys_sdram_size(phys_size_t *size)
 	{
 		//Setup 2GB Memory size
 		*size = (1L << 20) * 2048;
-		printf("Memory Detected 2G\n");
 	}
 	else
 	{
 		//Setup 4GB Memory Size
 		*size = (1L << 20) * 4096;
-		printf("Memory Detected: 4G\n");
 	}
 
 	return 0;
