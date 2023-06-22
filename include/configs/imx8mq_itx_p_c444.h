@@ -192,4 +192,11 @@
 #include "imx8mq_itx_p_c444_android.h"
 #endif
 
+#define CONFIG_BOARD_EARLY_INIT_F 1
+#define CONFIG_AUTOBOOT_KEYED
+#define CONFIG_AUTOBOOT_STOP_STR "~"
+#define CONFIG_SILENT_CONSOLE
+#define CONFIG_SILENT_CONSOLE_UPDATE_ON_SET
+#define CONFIG_SYS_DEVICE_NULLDEV
+
 #endif
