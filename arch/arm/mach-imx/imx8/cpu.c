@@ -879,7 +879,7 @@ u64 get_page_table_size(void)
 #define FUSE_MAC1_WORD1 711
 #endif
 
-void imx_get_mac_from_fuse(int dev_id, unsigned char *mac)
+void imx_get_mac_from_fuse2(int dev_id, unsigned char *mac)
 {
 	u32 word[2], val[2] = {};
 	int i, ret;
@@ -904,6 +904,8 @@ void imx_get_mac_from_fuse(int dev_id, unsigned char *mac)
 	mac[3] = val[0] >> 24;
 	mac[4] = val[1];
 	mac[5] = val[1] >> 8;
+	mac[6] = val[1] >> 16;
+	mac[7] = val[1] >> 24;
 
 	debug("%s: MAC%d: %02x.%02x.%02x.%02x.%02x.%02x\n",
 	      __func__, dev_id, mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
