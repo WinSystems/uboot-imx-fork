@@ -52,7 +52,7 @@ int board_phys_sdram_size(phys_size_t *size)
 	if (!size)
 		return -EINVAL;
 
-	unsigned char eth1addr[6];
+	unsigned char eth1addr[7];
 	imx_get_mac_from_fuse(0, eth1addr);
 	printf("eth1addr[0]: 0x%02x\n", eth1addr[0]);
 	printf("eth1addr[1]: 0x%02x\n", eth1addr[1]);
