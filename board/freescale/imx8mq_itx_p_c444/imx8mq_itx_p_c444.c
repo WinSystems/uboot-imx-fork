@@ -52,19 +52,10 @@ int board_phys_sdram_size(phys_size_t *size)
 	if (!size)
 		return -EINVAL;
 
-	unsigned char eth1addr[7];
-	imx_get_mac_from_fuse(0, eth1addr);
-	printf("eth1addr[0]: 0x%02x\n", eth1addr[0]);
-	printf("eth1addr[1]: 0x%02x\n", eth1addr[1]);
-	printf("eth1addr[2]: 0x%02x\n", eth1addr[2]);
-	printf("eth1addr[3]: 0x%02x\n", eth1addr[3]);
-	printf("eth1addr[4]: 0x%02x\n", eth1addr[4]);
-	printf("eth1addr[5]: 0x%02x\n", eth1addr[5]);
-	printf("eth1addr[6]: 0x%02x\n", eth1addr[6]);
-	printf("eth1addr[7]: 0x%02x\n", eth1addr[7]);
-
+	unsigned int val;
+	fuse_read(9, 2, &val);
 	/* ddr init */
-	if (eth1addr[1] && 0x1)
+	if (val && 0x1)
 	{
 		//Setup 2GB Memory size
 		printf("board_phys_sdram_size: 2GB Detected\n");
@@ -76,17 +67,6 @@ int board_phys_sdram_size(phys_size_t *size)
 		printf("board_phys_sdram_size: 4GB Detected\n");
 		*size = 0x100000000;
 	}
-	
-	printf("Read from MAC addres fuse 2\n");
-	imx_get_mac_from_fuse(1, eth1addr);
-	printf("eth1addr[0]: 0x%02x\n", eth1addr[0]);
-	printf("eth1addr[1]: 0x%02x\n", eth1addr[1]);
-	printf("eth1addr[2]: 0x%02x\n", eth1addr[2]);
-	printf("eth1addr[3]: 0x%02x\n", eth1addr[3]);
-	printf("eth1addr[4]: 0x%02x\n", eth1addr[4]);
-	printf("eth1addr[5]: 0x%02x\n", eth1addr[5]);
-	printf("eth1addr[6]: 0x%02x\n", eth1addr[6]);
-	printf("eth1addr[7]: 0x%02x\n", eth1addr[7]);
 
 	return 0;
 }
