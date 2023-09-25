@@ -61,6 +61,7 @@ int board_phys_sdram_size(phys_size_t *size)
 	printf("eth1addr[4]: 0x%02x\n", eth1addr[4]);
 	printf("eth1addr[5]: 0x%02x\n", eth1addr[5]);
 	printf("eth1addr[6]: 0x%02x\n", eth1addr[6]);
+	printf("eth1addr[7]: 0x%02x\n", eth1addr[7]);
 
 	/* ddr init */
 	if (eth1addr[1] && 0x1)
@@ -85,6 +86,7 @@ int board_phys_sdram_size(phys_size_t *size)
 	printf("eth1addr[4]: 0x%02x\n", eth1addr[4]);
 	printf("eth1addr[5]: 0x%02x\n", eth1addr[5]);
 	printf("eth1addr[6]: 0x%02x\n", eth1addr[6]);
+	printf("eth1addr[7]: 0x%02x\n", eth1addr[7]);
 
 	return 0;
 }
