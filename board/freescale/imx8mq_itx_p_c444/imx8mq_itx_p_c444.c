@@ -52,6 +52,7 @@ int board_phys_sdram_size(phys_size_t *size)
 	if (!size)
 		return -EINVAL;
 
+<<<<<<< HEAD
 	unsigned char eth1addr[6];
 	imx_get_mac_from_fuse(1, eth1addr);
 
@@ -60,12 +61,25 @@ int board_phys_sdram_size(phys_size_t *size)
 		//Setup 2GB Memory size
 		printf("board_phys_sdram_size: 2GB Detected\n");
 		*size = (1L << 20) * 2048;
+=======
+	unsigned int val;
+	fuse_read(9, 2, &val);
+	/* ddr init */
+	if (val && 0x1)
+	{
+		//Setup 2GB Memory size
+		*size = 0x80000000;
+>>>>>>> debug
 	}
 	else
 	{
 		//Setup 4GB Memory Size
+<<<<<<< HEAD
 		printf("board_phys_sdram_size: 4GB Detected\n");
 		*size = (1L << 20) * 4096;
+=======
+		*size = 0x100000000;
+>>>>>>> debug
 	}
 
 	return 0;
