@@ -278,7 +278,8 @@ int dram_init_banksize(void)
 	}
 
 	gd->bd->bi_dram[bank].start = PHYS_SDRAM;
-	if (rom_pointer[1]) {
+	/* if optee enabled and optee start overlaps ddr bank address range */
+	if (rom_pointer[1] && ((PHYS_SDRAM + sdram_b1_size) > rom_pointer[0])) {
 		phys_addr_t optee_start = (phys_addr_t)rom_pointer[0];
 		phys_size_t optee_size = (size_t)rom_pointer[1];
 
