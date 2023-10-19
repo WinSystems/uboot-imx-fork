@@ -1,0 +1,6 @@
+i.MX8MQ ITX_P_C444 BOARD
+M:	Benjamin Herrera <bherrera@winsystems.com>
+S:	Maintained
+F:	board/freescale/imx8mq_itx_p_c444/
+F:	include/configs/imx8mq_itx_p_c444.h
+F:	configs/imx8mq_itx_p_c444_defconfig
