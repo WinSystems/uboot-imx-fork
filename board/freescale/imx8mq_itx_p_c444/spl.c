@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0+
 /*
- * Copyright 2018, 2021 NXP
+ * Copyright 2018, 2023 WinSystems
  *
  */
 
@@ -130,7 +130,7 @@ int board_mmc_init(struct bd_info *bis)
 	 * mmc0                    USDHC1
 	 * mmc1                    USDHC2
 	 */
-	for (i = 0; i < CONFIG_SYS_FSL_USDHC_NUM; i++) {
+	for (i = 0; i < CFG_SYS_FSL_USDHC_NUM; i++) {
 		switch (i) {
 		case 0:
 			init_clk_usdhc(0);
@@ -183,7 +183,7 @@ int power_init_board(void)
 		return -ENODEV;
 
 	pmic_reg_read(p, PFUZE100_DEVICEID, &reg);
-	printf("ITX8MQ SPL\n");
+	printf("ITX8MQ C444aar SPL\n");
 	printf("PMIC:  PFUZE100 ID=0x%02x\n", reg);
 
 	pmic_reg_read(p, PFUZE100_SW3AVOL, &reg);
@@ -324,12 +324,6 @@ void spl_board_prepare_for_boot(void)
 
 	struct imx_rdc_cfg rdc_cfg[] = {
 		RDC_MDAn(RDC_MDA_DCSS, DID2),
-		/* memory region */
-		RDC_MEM_REGIONn(1, 0x00000000, 0xA0000000, LCK|ENA|D3R|D3W|D2R|/*D2W|*/D1R|D1W|D0R|D0W),
-		RDC_MEM_REGIONn(2, 0xA0000000, 0xB0000000, LCK|ENA|D3R|D3W|D2R|D2W|D1R|D1W|/*D0R|*/D0W),
-		RDC_MEM_REGIONn(3, 0xB0000000, 0xBE000000, LCK|ENA|D3R|D3W|D2R|/*D2W|*/D1R|D1W|D0R|D0W),
-		RDC_MEM_REGIONn(4, 0xBE000000, 0xC0000000, LCK|ENA|D3R|D3W|D2R|/*D2W|D1R|D1W|*/D0R|D0W),
-		RDC_MEM_REGIONn(5, 0xC0000000, 0xFFFFFFFF, LCK|ENA|D3R|D3W|D2R|/*D2W|*/D1R|D1W|D0R|D0W),
 		{0},
 	};
 

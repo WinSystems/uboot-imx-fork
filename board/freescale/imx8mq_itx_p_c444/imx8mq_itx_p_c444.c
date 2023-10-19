@@ -4,6 +4,7 @@
  */
 
 #include <common.h>
+#include <efi_loader.h>
 #include <env.h>
 #include <init.h>
 #include <malloc.h>
