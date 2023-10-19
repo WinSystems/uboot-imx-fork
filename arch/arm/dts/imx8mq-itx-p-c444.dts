@@ -6,7 +6,7 @@
 
 /dts-v1/;
 
-#include "imx8mq-itx-p-c444.dtsi"
+#include "imx8mq.dtsi"
 
 / {
 	model = "WINSYSTEMS i.MX8MQ ITX-P-C444";
