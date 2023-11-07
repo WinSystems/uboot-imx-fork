@@ -11,12 +11,9 @@
 #include <asm/arch/imx-regs.h>
 #include "imx_env.h"
 
-#undef CONFIG_NR_DRAM_BANKS
-#define CONFIG_NR_DRAM_BANKS 2
-
 #define CONFIG_SYS_BOOTM_LEN		(64 * SZ_1M)
 
-#define CONFIG_SPL_MAX_SIZE		(152 * 1024)
+#define CONFIG_SPL_MAX_SIZE		(156 * 1024)
 #define CONFIG_SYS_MONITOR_LEN		(512 * 1024)
 
 #ifdef CONFIG_SPL_BUILD
