@@ -14,7 +14,7 @@
 #include <linux/kernel.h>
 #include <asm/arch/ddr.h>
 
-struct dram_cfg_param ddr_ddrc_cfg[] = {
+struct dram_cfg_param ddr_ddrc_cfg_2G[] = {
 	/** Initialize DDRC registers **/
 	{ 0x3d400304, 0x1 },
 	{ 0x3d400030, 0x1 },
@@ -1231,7 +1231,7 @@ struct dram_cfg_param ddr_fsp0_2d_cfg_2G[] = {
 };
 
 /* DRAM PHY init engine image */
-struct dram_cfg_param ddr_phy_pie[] = {
+struct dram_cfg_param ddr_phy_pie_2G[] = {
 	{ 0xd0000, 0x0 },
 	{ 0x90000, 0x10 },
 	{ 0x90001, 0x400 },
@@ -1834,29 +1834,29 @@ struct dram_fsp_msg ddr_dram_fsp_msg_2G[] = {
 		/* P0 3200mts 1D */
 		.drate = 3200,
 		.fw_type = FW_1D_IMAGE,
-		.fsp_cfg = ddr_fsp0_cfg,
-		.fsp_cfg_num = ARRAY_SIZE(ddr_fsp0_cfg),
+		.fsp_cfg = ddr_fsp0_cfg_2G,
+		.fsp_cfg_num = ARRAY_SIZE(ddr_fsp0_cfg_2G),
 	},
 	{
 		/* P1 400mts 1D */
 		.drate = 400,
 		.fw_type = FW_1D_IMAGE,
-		.fsp_cfg = ddr_fsp1_cfg,
-		.fsp_cfg_num = ARRAY_SIZE(ddr_fsp1_cfg),
+		.fsp_cfg = ddr_fsp1_cfg_2G,
+		.fsp_cfg_num = ARRAY_SIZE(ddr_fsp1_cfg_2G),
 	},
 	{
 		/* P2 100mts 1D */
 		.drate = 100,
 		.fw_type = FW_1D_IMAGE,
-		.fsp_cfg = ddr_fsp2_cfg,
-		.fsp_cfg_num = ARRAY_SIZE(ddr_fsp2_cfg),
+		.fsp_cfg = ddr_fsp2_cfg_2G,
+		.fsp_cfg_num = ARRAY_SIZE(ddr_fsp2_cfg_2G),
 	},
 	{
 		/* P0 3200mts 2D */
 		.drate = 3200,
 		.fw_type = FW_2D_IMAGE,
-		.fsp_cfg = ddr_fsp0_2d_cfg,
-		.fsp_cfg_num = ARRAY_SIZE(ddr_fsp0_2d_cfg),
+		.fsp_cfg = ddr_fsp0_2d_cfg_2G,
+		.fsp_cfg_num = ARRAY_SIZE(ddr_fsp0_2d_cfg_2G),
 	},
 };
 
