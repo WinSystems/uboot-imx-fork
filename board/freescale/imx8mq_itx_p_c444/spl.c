@@ -43,6 +43,8 @@ static void spl_dram_init(void)
 {
 	unsigned int val;
 	fuse_read(9, 2, &val);
+	
+	printf("SDRAM Manufacturer ID: 0x%08x\n", lpddr4_mr_read(5, 0));
 
 	/* ddr init */
 	if (val && 0x1)
