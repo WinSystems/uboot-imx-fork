@@ -51,7 +51,7 @@ static void spl_dram_init(void)
 	else
 		ddr_init(&dram_timing_4G);
 		
-	printf("SDRAM Manufacturer ID: 0x%08x\n", lpddr4_mr_read(0xf, 5));
+	// printf("SDRAM Manufacturer ID: 0x%08x\n", lpddr4_mr_read(0xf, 5));
 }
 
 #define I2C_PAD_CTRL	(PAD_CTL_DSE6 | PAD_CTL_HYS | PAD_CTL_PUE)
